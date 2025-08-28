@@ -29,7 +29,9 @@ describe('Articles E2E', () => {
     await app.init();
 
     prisma = app.get(PrismaService);
+  });
 
+  beforeEach(async () => {
     await prisma.clearDatabase();
   });
 
