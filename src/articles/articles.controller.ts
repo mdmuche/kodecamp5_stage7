@@ -11,6 +11,7 @@ import { ApiParam, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { ArticlesService } from './articles.service';
 import { CreateArticleDto } from './dto/create-article.dto';
 import { UpdateArticleDto } from './dto/update-article.dto';
+import { ArticlesQueryDto } from './dto/articles-query.dto';
 
 @ApiTags('articles')
 @Controller('articles')
@@ -31,8 +32,8 @@ export class ArticlesController {
     status: 200,
     description: 'Retrieve all articles',
   })
-  findAll() {
-    return this.articlesService.findAll();
+  findAll(articlesQueryDto: ArticlesQueryDto) {
+    return this.articlesService.findAll(articlesQueryDto);
   }
 
   @Get(':id')
